@@ -1,0 +1,13 @@
+@import "./variables.scss";
+@import "./mxins";
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    color: $dark;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
