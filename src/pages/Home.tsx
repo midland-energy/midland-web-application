@@ -15,9 +15,6 @@ import slide1 from "../assets/hello-world-featured.jpg"
 import slide2 from "../assets/02a72a68-c549-405a-81ae-11530fdac69c.jpg"
 import { useInView } from "react-intersection-observer"
 import CountUp from "react-countup"
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Autoplay } from "swiper/modules"
-import "swiper/css"
 
 type StatItemProps = {
   label: string
@@ -375,17 +372,8 @@ function App() {
             </p>
           </div>
 
-          {/* <div className="testimonials__grid grid md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
-            <Swiper modules={[Autoplay]} spaceBetween={24} slidesPerView={1}
-              autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,}}
-              loop
-              breakpoints={{ 768: {slidesPerView: 2,}, 1024: {slidesPerView: 3,},}}
-            >
-              {/* <div className="testimonials__grid grid md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
+          <div className="testimonials__grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
              {testimonials.map((testimonial, index) => (
-              <SwiperSlide key={index}>
               <div key={index} className="col">
               <div className="card h-100 bg-white shadow-sm p-3">
 
@@ -417,12 +405,9 @@ function App() {
             </div>
            </div>
           </div>
-          </SwiperSlide>
-         ))}
-         {/* </div> */}
-         </Swiper>      
+         ))}  
           </div>
-        {/* </div> */}
+        </div>
       </section>
 
       {/* CTA Section */}
