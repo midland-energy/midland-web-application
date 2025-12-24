@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import "../styles/components/header.scss"
 import logo from "../assets/MIDLAND-LOGO.png"
+import { NavLink } from "react-router-dom"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -20,23 +21,27 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <div className="header__links">
-            <a href="#home" className="links">
-              Home
-            </a>
-            <a href="#about" className="links">
-              About
-            </a>
-            <a href="#projects" className="links">
-              Energy Projects Gallery
-            </a>
-            <a href="#contact" className="links">
-              Contact
-            </a>
+            <NavLink className="links" to={"/"}>
+                Home
+            </NavLink>
+            <NavLink className="links" to={"/about"}>
+                About
+            </NavLink>
+            <NavLink className="links" to={"/projects"}>
+                Energy Projects Gallery
+            </NavLink>
+            <NavLink className="links" to={"/contact"}>
+                Contact
+            </NavLink>
           </div>
 
           {/* CTA Button */}
           <div className="header__cta">
-            <button className="header-btn">Get a Quote</button>
+            <button className="header-btn">
+              <NavLink className="links" style={{color: "white"}} to={"/contact"}>
+                Get a Quote
+              </NavLink>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -52,35 +57,19 @@ export function Header() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="header__mobile-menu">
-            <a
-              href="#home"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block text-foreground hover:text-primary transition-colors"
-            >
-              Home
-            </a>
-            <a
-              href="#about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block text-foreground hover:text-primary transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="#projects"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block text-foreground hover:text-primary transition-colors"
-            >
-              Energy Projects Gallery
-            </a>
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block text-foreground hover:text-primary transition-colors"
-            >
-              Contact
-            </a>
-            <button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Get a Quote</button>
+            <NavLink className="links" to={"/"} onClick={() => setMobileMenuOpen(false)}>
+                Home
+            </NavLink>
+            <NavLink className="links" to={"/about"} onClick={() => setMobileMenuOpen(false)}>
+                About
+            </NavLink>
+            <NavLink className="links" to={"/projects"} onClick={() => setMobileMenuOpen(false)}>
+                Energy Project Gallery
+            </NavLink>
+            <NavLink className="links" to={"/contact"} onClick={() => setMobileMenuOpen(false)}>
+                Contact
+            </NavLink>
+            <button className="header-btn">Get a Quote</button>
           </div>
         )}
       </nav>

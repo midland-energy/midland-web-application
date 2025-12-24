@@ -15,13 +15,14 @@ import slide1 from "../assets/hello-world-featured.jpg"
 import slide2 from "../assets/02a72a68-c549-405a-81ae-11530fdac69c.jpg"
 import { useInView } from "react-intersection-observer"
 import CountUp from "react-countup"
+import { NavLink } from "react-router-dom"
 
 type StatItemProps = {
   label: string
   value: string
 }
 
-function StatItem({ label, value }: StatItemProps) {
+export function StatItem({ label, value }: StatItemProps) {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.3,
@@ -184,8 +185,16 @@ function App() {
           </p>
 
           <div className="hero__buttons">
-            <button className="hero-btn1">Get a Free Consultation</button>
-            <button className="hero-btn2">View Our Projects</button>
+            <button className="hero-btn1">
+            <NavLink className="links" to={"/contact"}>
+                Get a Free Consultation
+            </NavLink>
+          </button>
+          <button className="hero-btn2">
+            <NavLink className="links" to={"/projects"}>
+              View Our Projects
+            </NavLink>
+          </button>
           </div>
 
           <div className="hero__scroll">
@@ -281,7 +290,11 @@ function App() {
                 </p>
               </div>
 
-              <button className="prj-btn">Learn More About Us</button>
+              <button className="prj-btn">
+                <NavLink className="links" style={{color: "white"}} to={"/about"}>
+                  Learn More About Us
+                </NavLink>
+              </button>
             </div>
 
             {/* Right Column - Image */}
@@ -420,7 +433,11 @@ function App() {
             Contact us today for a free consultation and discover how we can help you harness the power of renewable
             energy
           </p>
-          <button className="consultation">Get a Free Consultation</button>
+          <button className="consultation">
+            <NavLink className="links" to={"/contact"}>
+                Get a Free Consultation
+            </NavLink>
+          </button>
         </div>
       </section>
 
