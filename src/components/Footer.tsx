@@ -1,6 +1,7 @@
-import { Facebook, Twitter, Linkedin, Instagram, Github } from "lucide-react"
+import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
 import "../styles/components/footer.scss"
 import logo from "../assets/MIDLAND-LOGO.png"
+import { NavLink } from "react-router-dom"
 
 export function Footer() {
   return (
@@ -20,20 +21,18 @@ export function Footer() {
               construction practices.
             </p>
             <div className="footer__socials">
-              <a href="#" className="hover:text-accent transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="hover:text-accent transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="hover:text-accent transition-colors">
+              <a href="https://www.linkedin.com/company/midland-construction-and-energy-nig-ltd/posts/?feedView=all" target="_blank"
+                rel="noopener noreferrer" className="hover:text-accent transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="hover:text-accent transition-colors">
-                <Instagram className="w-5 h-5" />
+              <a href="https://x.com/midland_africa" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="hover:text-accent transition-colors">
-                <Github className="w-5 h-5" />
+              <a href="https://www.facebook.com/profile.php?id=61577943440667&_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="https://www.instagram.com/midland_africa/#" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -43,29 +42,24 @@ export function Footer() {
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                <NavLink className="links" to={"/"}>
                   Home
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="#about" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                  About Us
-                </a>
+                <NavLink className="links" to={"/about"}>
+                  About
+                </NavLink>
               </li>
               <li>
-                <a href="#projects" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                  Energy Projects
-                </a>
+                <NavLink className="links" to={"/projects"}>
+                  Energy Projects Gallery
+                </NavLink>
               </li>
               <li>
-                <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                  Structural Projects
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                <NavLink className="links" to={"/contact"}>
                   Contact
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>

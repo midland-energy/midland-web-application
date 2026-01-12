@@ -137,6 +137,7 @@
             font-size: 1rem;
             font-family: $font-sans;
             transition: border-color $transition-fast;
+            color: oklch(33.68% 0.00004 271.152);
 
             &:focus {
                 outline: none;

@@ -1,4 +1,4 @@
-import { ArrowRight, ChevronDown, Star } from "lucide-react"
+import { ArrowRight, ChevronDown, Star, UserCheck } from "lucide-react"
 import "../styles/pages/home.scss"
 import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
@@ -16,6 +16,12 @@ import slide2 from "../assets/02a72a68-c549-405a-81ae-11530fdac69c.jpg"
 import { useInView } from "react-intersection-observer"
 import CountUp from "react-countup"
 import { NavLink } from "react-router-dom"
+import steamaco from "../assets/SteamaCo+logo.webp"
+import earthBond from "../assets/earthbond2.png"
+import geoRenz from "../assets/GeoRenz-logo.jpg"
+import keyfield from "../assets/keyfield.jpg"
+import img11 from "../assets/IMAGE 11.jpg"
+import img13 from "../assets/IMAGE 13.jpg"
 
 type StatItemProps = {
   label: string
@@ -87,74 +93,87 @@ function App() {
 
   const projects = [
     {
-      title: "Residential Solar Installation",
-      description: "Providing clean energy to over 50 homes in the suburban area",
+      title: "Essential power pack",
+      description: "Lighting points, Standing/Wall-mount/Ceiling Fan, LED/LCD Television, Decoder/Receiver, Phone/Laptop Charging",
       image: proj4,
       badge: "Energy",
     },
     {
-      title: "Community Solar Hub",
-      description: "A shared solar facility that provides renewable energy to local residents",
+      title: "Double Boost System",
+      description: "Small (Energy Efficient) Washing Machine, Standing/Wall-mount/Ceiling Fan, LED/LCD Television, Small Blender, Small (Energy Efficient) Fridge, Lighting Points, Phone/Laptop Charging",
       image: proj2,
       badge: "Energy",
     },
     {
-      title: "Commercial Solar Array",
-      description: "Large-scale solar installation powering business complex",
+      title: "Smart Lite Solution",
+      description: "Small Electric kettle, Medium Size Blender, Medium Size (Energy Efficient) Fridge, Medium Size (Energy Efficient) Washing Machine, 1hp Air Conditioner",
       image: proj3,
+      badge: "Energy",
+    },
+    {
+      title: "Comfort Zone Power",
+      description: "Small Electric kettle, Medium Size Blender, Medium Size (Energy Efficient) Fridge, Medium Size (Energy Efficient) Washing Machine, 1hp Air Conditioner",
+      image: img11,
+      badge: "Energy",
+    },
+    {
+      title: "Reliable Energy Hub",
+      description: "Medium Size Electric kettle, Medium Size Blender, Big Size (Energy Efficient) Fridge, Big Size (Energy Efficient) Washing Machine, 1.5hp Air Conditioner, Medium Size Microwave Oven",
+      image: inverter,
+      badge: "Energy",
+    },
+    {
+      title: "Power Pro Max",
+      description: "Medium Electric kettle, Medium Size Blender, Big Size (Energy Efficient) Fridge, Big Size (Energy Efficient) Washing Machine, 1.5hp Air Conditioner, Medium Size Microwave Oven",
+      image: img13,
       badge: "Energy",
     },
   ]
 
   const testimonials = [
     {
-      name: "Michael Johnson",
-      title: "CEO, Greenfield Solutions",
+      name: "Gift Apatha",
+      title: "AG events and makeover",
       image: client,
       quote:
-        "MidlandAfrica transformed our business with their solar installation. We've cut our energy costs by 60% and our carbon footprint is significantly reduced.",
+        "MidlandAfrica solar solution at the business mall transformed our business. We've cut our energy costs by 60% and also have steady power to improved our work efficiency.",
       rating: 5,
     },
     {
-      name: "Sarah Williams",
-      title: "Sustainability Director, Eco Innovations",
+      name: "Orobosa Williams",
+      title: "Hair Stylist",
       image: client,
       quote:
-        "The team's attention to detail and commitment to quality was impressive. They delivered exactly what was promised on time and within budget.",
+        "Midland solar solution has help reduced the money spent fueling genetator on daily basis, thereby making his business more profitaable.",
       rating: 5,
     },
     {
-      name: "David Chen",
-      title: "Operations Manager, Sunrise Corp",
+      name: "Favour",
+      title: "Hair by favour",
       image: client,
       quote:
-        "From consultation to installation, the process was seamless. Our team is now powered almost entirely by renewable energy thanks to MidlandAfrica.",
+        "Midland's solar solution in her business mall has given me leverage to work for longer hours and attend to more customers compared to using generators which has been less reliable.",
       rating: 5,
+    }
+  ]
+
+  const partners = [
+    {
+      name: "Steamaco",
+      image: steamaco,
     },
     {
-      name: "David Chen",
-      title: "Operations Manager, Sunrise Corp",
-      image: client,
-      quote:
-        "From consultation to installation, the process was seamless. Our team is now powered almost entirely by renewable energy thanks to MidlandAfrica.",
-      rating: 5,
+      name: "GeoRenz",
+      image: earthBond,
     },
     {
-      name: "David Chen",
-      title: "Operations Manager, Sunrise Corp",
-      image: client,
-      quote:
-        "From consultation to installation, the process was seamless. Our team is now powered almost entirely by renewable energy thanks to MidlandAfrica.",
-      rating: 5,
+      name: "Earthbond",
+      image: geoRenz,
     },
     {
-      name: "David Chen",
-      title: "Operations Manager, Sunrise Corp",
-      image: client,
-      quote:
-        "From consultation to installation, the process was seamless. Our team is now powered almost entirely by renewable energy thanks to MidlandAfrica.",
-      rating: 5,
-    },
+      name: "Keyfield Electrical & Energy Limited",
+      image: keyfield,
+    }
   ]
 
   return (
@@ -216,6 +235,27 @@ function App() {
               />
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="stats partners-section">
+        <div className="pat">
+          <span><p>Our Partners</p> </span>
+        </div>
+        <div className="container">
+          <div className="partners-slider">
+            <div className="partners-track">
+              {[...partners, ...partners].map((partner, index) => (
+                <div className="partners-div" key={index}>
+                  <img
+                    src={partner.image}
+                    alt={partner.name}
+                    className="partners"
+                  />
+                </div>
+              ))}
+            </div>
+         </div>
         </div>
       </section>
 
@@ -322,14 +362,13 @@ function App() {
       <section className="projects py-20 bg-muted/30" id="projects">
         <div className="container mx-auto px-4">
           <div className="projects__header text-center space-y-4 mb-12">
-            <div className="projects__tag"><p>Projects</p></div>
-            <h2 className="projects__title text-3xl md:text-4xl font-bold text-foreground">Featured Projects</h2>
+            <div className="projects__tag"><p>Our Solutions</p></div>
             <p className="projects__description text-muted-foreground max-w-2xl mx-auto">
-              Explore some of our most impactful work in sustainable energy and construction
+              Affordable packages designed for every energy need
             </p>
           </div>
 
-          <div className="projects__grid grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          <div className="projects__grid mb-8">
             {projects.map((project, index) => (
               <div key={index} className="col">
   <div className="card h-100 overflow-hidden shadow-sm hover-shadow bg-white">
@@ -354,9 +393,11 @@ function App() {
       <h3 className="card-title fs-5 fw-bold projects__title">
         {project.title}
       </h3>
-      <p className="card-text text-muted small projects__description mb-0">
-        {project.description}
-      </p>
+      <ul className="projects__features">
+        {project.description.split(",").map((item, i) => (
+          <li key={i}>{item.trim()}</li>
+        ))}
+      </ul>
     </div>
 
   </div>
@@ -366,7 +407,11 @@ function App() {
           </div>
 
           <div className="projects__buttons">
-            <button className="prj-btn">View Energy Projects</button>
+            <button className="prj-btn">
+              <NavLink className="links" style={{color: "white"}} to={"/projects"}>
+                View Energy Projects
+              </NavLink>
+            </button>
           </div>
         </div>
       </section>
@@ -393,7 +438,7 @@ function App() {
               {/* Stars */}
               <div className="mb-2 d-flex gap-1">
               {[...Array(testimonial.rating)].map((_, i) => (
-                <Star key={i} size={18} className="text-warning" />
+                <Star key={i} size={18} fill="currentColor" className="text-warning" />
               ))}
               </div>
 
@@ -404,12 +449,8 @@ function App() {
 
               {/* Author */}
               <div className="d-flex align-items-center gap-3 pt-3">
-              <div className="rounded-circle overflow-hidden" style={{ width: "48px", height: "48px" }}>
-              <img
-                src={testimonial.image || "/placeholder.svg"}
-                alt={testimonial.name}
-                className="w-100 h-100 object-fit-cover"
-              />
+              <div style={{ width: "48px", height: "48px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <UserCheck className="w-6 h-6" />
               </div>
               <div>
                 <div className="fw-semibold">{testimonial.name}</div>
@@ -419,7 +460,7 @@ function App() {
            </div>
           </div>
          ))}  
-          </div>
+        </div>
         </div>
       </section>
 

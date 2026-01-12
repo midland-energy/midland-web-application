@@ -134,7 +134,7 @@ const stats = [
       </section>
 
       {/* Leadership Team Section */}
-      <section className="leadership">
+      {/* <section className="leadership">
         <div className="leadership__container">
           <div className="leadership__header">
             <div className="leadership__tag">Meet our Team</div>
@@ -182,7 +182,7 @@ const stats = [
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Services Preview Section */}
       <section className="services-preview">

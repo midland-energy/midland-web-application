@@ -181,6 +181,7 @@
             display: flex;
             height: 110px;
             justify-content: space-around;
+            gap: 10px;
 
             .stats__item {
                 text-align: center;
@@ -255,6 +256,77 @@
             @media (min-width: 1024px) {
                 grid-template-columns: repeat(3, 1fr);
             }
+        }
+    }
+
+    partners-section {
+        overflow: hidden;
+        padding: 40px 0;
+    }
+
+    .pat {
+        width: 158px;
+        height: 40px;
+        border-radius: 30px;
+        border: 1px solid $color-accent;
+        color: #0D1C17;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        margin-bottom: 20px;
+
+        p {
+            color: $color-muted-foreground;
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+    }
+
+    /* Visible area */
+    .partners-slider {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    /* Moving track */
+    .partners-track {
+        display: flex;
+        width: max-content;
+        animation: scrollPartners 20s linear infinite;
+    }
+
+    /* Each logo */
+    .partners-div {
+        flex: 0 0 auto;
+        padding: 0 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Logo */
+    .partners {
+        height: 60px;
+        width: auto;
+        object-fit: contain;
+        transition: all 0.3s ease;
+    }
+
+    /* Hover effect */
+    .partners-div:hover .partners {
+        filter: grayscale(0%);
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    /* Animation */
+    @keyframes scrollPartners {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
         }
     }
 
@@ -368,6 +440,7 @@
         }
 
         .projects__grid {
+            width: 100%;
             display: grid;
             gap: $spacing-xl;
             margin-bottom: $spacing-xl;

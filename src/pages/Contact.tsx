@@ -2,7 +2,10 @@ import { useState } from "react"
 import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
 import "../styles/pages/contact.scss"
-import { Phone, Mail, MapPin, Globe, Instagram, Twitter, Github } from "lucide-react"
+import { Phone, Mail, MapPin, Instagram, Twitter, Linkedin, Facebook } from "lucide-react"
+import { addDoc, collection, serverTimestamp } from "firebase/firestore"
+import { db } from "../firebase"
+
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -12,10 +15,31 @@ export function Contact() {
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault()
+  //   console.log("Form submitted:", formData)
+  //   // Handle form submission
+  // }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    console.log(formData)
     e.preventDefault()
-    console.log("Form submitted:", formData)
-    // Handle form submission
+
+    try {
+      await addDoc(collection(db, "messages"), {
+        fullName: formData.fullName,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        createdAt: serverTimestamp()
+      })
+
+      alert("Message sent successfully!")
+      setFormData({ fullName: "", email: "", subject: "", message: "" })
+    } catch (error) {
+      console.error(error)
+      alert("Failed to send message.")
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -146,7 +170,7 @@ export function Contact() {
                   <div className="contact-info__details">
                     <h4>Address</h4>
                     <p>
-                      123 Sustainability Road
+                      8, Peregrino Close, Rockstoneville Estate, Ajah Lagos
                       <br />
                       Lagos, Nigeria
                     </p>
@@ -178,17 +202,17 @@ export function Contact() {
               <h3 className="contact-info__heading">Connect With Us</h3>
 
               <div className="contact-info__socials">
-                <a href="#" className="contact-info__social" aria-label="Website">
-                  <Globe size={20} />
+                <a href="https://www.linkedin.com/company/midland-construction-and-energy-nig-ltd/posts/?feedView=all" className="contact-info__social" aria-label="Website">
+                  <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="#" className="contact-info__social" aria-label="Instagram">
+                <a href="https://www.instagram.com/midland_africa" className="contact-info__social" aria-label="Instagram">
                   <Instagram size={20} />
                 </a>
-                <a href="#" className="contact-info__social" aria-label="Twitter">
+                <a href="https://x.com/midland_africa" className="contact-info__social" aria-label="Twitter">
                   <Twitter size={20} />
                 </a>
-                <a href="#" className="contact-info__social" aria-label="GitHub">
-                  <Github size={20} />
+                <a href="https://www.facebook.com/profile.php?id=61577943440667&_rdc=1&_rdr" className="contact-info__social" aria-label="GitHub">
+                  <Facebook className="w-5 h-5" />
                 </a>
               </div>
             </div>
