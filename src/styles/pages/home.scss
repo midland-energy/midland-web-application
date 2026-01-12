@@ -294,6 +294,21 @@
         display: flex;
         width: max-content;
         animation: scrollPartners 20s linear infinite;
+
+        @media (max-width: 768px) {
+            width: 90vw;
+            animation: scrollPartners 5s linear infinite;
+
+            @keyframes scrollPartners {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(-150%);
+                }
+            }
+        }
     }
 
     /* Each logo */

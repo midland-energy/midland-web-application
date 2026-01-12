@@ -238,7 +238,7 @@ function App() {
         </div>
       </section>
 
-      <section className="stats partners-section">
+      <section className="stats">
         <div className="pat">
           <span><p>Our Partners</p> </span>
         </div>
