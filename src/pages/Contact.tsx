@@ -11,7 +11,9 @@ export function Contact() {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
-    subject: "",
+    phone: "",
+    adress: "",
+    package: "",
     message: "",
   })
 
@@ -28,14 +30,17 @@ export function Contact() {
     try {
       await addDoc(collection(db, "messages"), {
         fullName: formData.fullName,
-        email: formData.email,
-        subject: formData.subject,
+        //email: formData.email,
+        email: "chidoziek2@gmail.com",
+        phone: formData.phone,
+        adress: formData.adress,
         message: formData.message,
+        package: formData.package,
         createdAt: serverTimestamp()
       })
 
       alert("Message sent successfully!")
-      setFormData({ fullName: "", email: "", subject: "", message: "" })
+      setFormData({ fullName: "", email: "", phone: "", adress: "", package: "", message: "" })
     } catch (error) {
       console.error(error)
       alert("Failed to send message.")
@@ -105,21 +110,49 @@ export function Contact() {
                 </div>
               </div>
 
-              <div className="contact-form__group">
-                <label htmlFor="subject">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  placeholder="How can we help you?"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                />
+              <div className="contact-form__row">
+                <div className="contact-form__group">
+                  <label htmlFor="subject">Phone Number</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="phone"
+                    placeholder="How can we help you?"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="contact-form__group">
+                  <label htmlFor="subject">Adress</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="adress"
+                    placeholder="How can we help you?"
+                    value={formData.adress}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
 
               <div className="contact-form__group">
-                <label htmlFor="message">Message</label>
+                  <label htmlFor="subject">Interested Package</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="package"
+                    placeholder="How can we help you?"
+                    value={formData.package}
+                    onChange={handleChange}
+                    required
+                  />
+              </div>
+
+              <div className="contact-form__group">
+                <label htmlFor="message">Additional Message</label>
                 <textarea
                   id="message"
                   name="message"

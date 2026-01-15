@@ -2,51 +2,47 @@
 import * as admin from "firebase-admin"
 import * as nodemailer from "nodemailer"
 import { onDocumentCreated } from "firebase-functions/v2/firestore"
+import { defineSecret } from "firebase-functions/params"
 
 
 admin.initializeApp()
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.GMAIL_EMAIL,
-    pass: process.env.GMAIL_PASS
-  }
-})
+const GMAIL_EMAIL = defineSecret("gmail_email")
+const GMAIL_PASS = defineSecret("gmail_pass")
 
 export const sendContactEmail = onDocumentCreated(
-  "messages/{docId}",
+  {
+    document: "messages/{docId}",
+    secrets: [GMAIL_EMAIL, GMAIL_PASS],
+  },
   async (event) => {
     const data = event.data?.data()
-    console.log(data)
     if (!data) return
+
+    // ✅ Secrets are available here
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: GMAIL_EMAIL.value(),
+        pass: GMAIL_PASS.value(),
+      },
+    })
 
     const mailOptions = {
       from: "Midland Website <operations@midlandafrica.com>",
-      to: "dakingzman@gmail.com",
-      //to: "chidoziek2@gmail.com",
+      to: "midlandenergyltd@gmail.com",
       subject: `New Contact Form: ${data.subject}`,
       html: `
         <h3>New Message from Website</h3>
         <p><strong>Name:</strong> ${data.fullName}</p>
         <p><strong>Email:</strong> ${data.email}</p>
         <p><strong>Message:</strong><br/>${data.message}</p>
-      `
+      `,
     }
 
     await transporter.sendMail(mailOptions)
-    // email logic here
   }
 )
-
-/**
- * Import function triggers from their respective submodules:
- *
- * import {onCall} from "firebase-functions/v2/https";
- * import {onDocumentWritten} from "firebase-functions/v2/firestore";
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
 
 import {setGlobalOptions} from "firebase-functions";
 
@@ -65,8 +61,4 @@ import {setGlobalOptions} from "firebase-functions";
 // this will be the maximum concurrent request count.
 setGlobalOptions({ maxInstances: 10 });
 
-// export const helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
 
