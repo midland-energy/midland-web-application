@@ -17,12 +17,6 @@ export function Contact() {
     message: "",
   })
 
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault()
-  //   console.log("Form submitted:", formData)
-  //   // Handle form submission
-  // }
-
   const handleSubmit = async (e: React.FormEvent) => {
     console.log(formData)
     e.preventDefault()
@@ -30,8 +24,7 @@ export function Contact() {
     try {
       await addDoc(collection(db, "messages"), {
         fullName: formData.fullName,
-        //email: formData.email,
-        email: "chidoziek2@gmail.com",
+        email: formData.email,
         phone: formData.phone,
         adress: formData.adress,
         message: formData.message,
