@@ -1,0 +1,365 @@
+@import '../variables';
+
+.projects-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+// Hero Section
+.projects-hero {
+    background-image: url('../../assets/solar-panel.jpg');
+    background-color: $color-primary;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 120px $spacing-lg 80px;
+    text-align: center;
+    color: white;
+
+    @media (max-width: 768px) {
+        padding: 100px $spacing-lg 60px;
+    }
+
+    &__content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: $spacing-lg;
+        line-height: 1.2;
+
+        @media (max-width: 768px) {
+            font-size: 2.5rem;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.125rem;
+        opacity: 0.95;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+
+        @media (max-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+}
+
+// Filter Section
+.projects-filter {
+    padding: $spacing-3xl $spacing-lg;
+    background: white;
+
+    @media (max-width: 768px) {
+        padding: $spacing-xl $spacing-lg;
+    }
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        gap: $spacing-md;
+        flex-wrap: wrap;
+    }
+
+    &__btn {
+        padding: 12px 28px;
+        border-radius: 24px;
+        border: none;
+        background: oklch(0.94 0 0);
+        color: $color-foreground;
+        font-size: 0.9375rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all $transition-fast;
+
+        &:hover {
+            background: oklch(0.90 0 0);
+        }
+
+        &--active {
+            background: $color-primary;
+            color: white;
+
+            &:hover {
+                background: $color-primary;
+            }
+        }
+
+        @media (max-width: 768px) {
+            padding: 10px 20px;
+            font-size: 0.875rem;
+        }
+    }
+}
+
+// Projects Grid
+.projects-grid {
+    padding: 0 $spacing-lg $spacing-3xl;
+    background: white;
+
+    @media (max-width: 768px) {
+        padding: 0 $spacing-lg $spacing-xl;
+    }
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: $spacing-xl;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: $spacing-lg;
+        }
+    }
+}
+
+.project-card {
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform $transition-normal, box-shadow $transition-normal;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+        .project-card__overlay {
+            background: rgba(0, 0, 0, 0.75);
+        }
+    }
+
+    &__image-wrapper {
+        position: relative;
+        height: 320px;
+        overflow: hidden;
+
+        @media (max-width: 768px) {
+            height: 280px;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        padding: $spacing-xl;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        transition: background $transition-normal;
+
+        @media (max-width: 768px) {
+            padding: $spacing-lg;
+        }
+    }
+
+    &__badge {
+        display: inline-block;
+        background: $color-accent;
+        color: $color-accent-foreground;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: capitalize;
+        width: fit-content;
+        margin-bottom: $spacing-md;
+    }
+
+    &__title {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: $spacing-sm;
+        line-height: 1.3;
+
+        @media (max-width: 768px) {
+            font-size: 1.25rem;
+        }
+    }
+
+    &__description {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.9375rem;
+        line-height: 1.6;
+
+        @media (max-width: 768px) {
+            font-size: 0.875rem;
+        }
+    }
+}
+
+// Impact Section
+.projects-impact {
+    padding: $spacing-3xl $spacing-lg;
+    background: $color-cream;
+
+    @media (max-width: 768px) {
+        padding: $spacing-xl $spacing-lg;
+    }
+
+    &__header {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto $spacing-3xl;
+
+        @media (max-width: 768px) {
+            margin-bottom: $spacing-xl;
+        }
+    }
+
+    &__label {
+        display: inline-block;
+        background: white;
+        color: $color-foreground;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: $spacing-lg;
+        border: 1px solid $color-border;
+    }
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: $spacing-lg;
+        color: $color-foreground;
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1rem;
+        color: oklch(0.45 0 0);
+        line-height: 1.6;
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+    &__stats {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: $spacing-xl;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: $spacing-lg;
+        }
+    }
+}
+
+.impact-stat {
+    background: white;
+    padding: $spacing-xl;
+    border-radius: $radius-lg;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    @media (max-width: 768px) {
+        padding: $spacing-lg;
+    }
+
+    &__value {
+        font-size: 3rem;
+        font-weight: 700;
+        color: $color-accent;
+        margin-bottom: $spacing-sm;
+        line-height: 1;
+
+        @media (max-width: 768px) {
+            font-size: 2.5rem;
+        }
+    }
+
+    &__label {
+        font-size: 0.9375rem;
+        color: oklch(0.45 0 0);
+        line-height: 1.5;
+
+        @media (max-width: 768px) {
+            font-size: 0.875rem;
+        }
+    }
+}
+
+// CTA Section
+.projects-cta {
+    background: $color-primary;
+    padding: $spacing-3xl $spacing-lg;
+    color: white;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        padding: $spacing-xl $spacing-lg;
+    }
+
+    &__content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: $spacing-lg;
+        line-height: 1.3;
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.125rem;
+        opacity: 0.95;
+        margin-bottom: $spacing-xl;
+        line-height: 1.6;
+
+        @media (max-width: 768px) {
+            font-size: 1rem;
+            margin-bottom: $spacing-lg;
+        }
+    }
+
+    &__btn {
+        background: $color-accent;
+        color: $color-accent-foreground;
+        border: none;
+        padding: 16px 36px;
+        border-radius: $radius-lg;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform $transition-fast, box-shadow $transition-fast;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            padding: 14px 28px;
+            font-size: 0.9375rem;
+        }
+    }
+}

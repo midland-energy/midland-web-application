@@ -1,0 +1,597 @@
+@import '../variables.scss';
+
+.about-page {
+    min-height: 100vh;
+    background: $color-background;
+}
+
+// Hero Section
+.about-hero {
+    padding: 8rem 1rem 4rem;
+    color: $color-primary-foreground;
+    position: relative;
+    overflow: hidden;
+    background-image: (url('../../assets/solar-panel.jpg'));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/placeholder.svg?height=600&width=1200') center/cover;
+        opacity: 0.1;
+    }
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: left;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.125rem;
+        opacity: 0.9;
+        max-width: 600px;
+
+        @media (max-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+}
+
+.stats {
+    padding: $spacing-3xl 0;
+    //display: flex;
+    width: 90%;
+    margin: auto;
+
+    .stats__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $spacing-xl;
+
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(4, 1fr);
+            gap: $spacing-2xl;
+        }
+    }
+
+    .stat-container {
+        display: flex;
+        height: 110px;
+        justify-content: space-around;
+
+        .stats__item {
+            text-align: center;
+            background-color: $color-cream;
+            width: 24%;
+            border-radius: 4px;
+
+            .stats__value {
+                font-size: 28px;
+                font-weight: 800;
+                color: #F7C600;
+            }
+
+            .stats__label {
+                font-size: 14px;
+                font-weight: 500;
+                margin-top: 20px;
+                color: $color-muted-foreground;
+            }
+        }
+    }
+}
+
+// Company Overview Section
+.company-overview {
+    padding: 4rem 1rem;
+    background: $color-background;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+
+        @media (max-width: 968px) {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+
+    &__image {
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: $radius-lg;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    &__tag {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: $color-cream;
+        color: $color-primary;
+        border-radius: $radius;
+        font-size: 0.875rem;
+        font-weight: 600;
+        width: fit-content;
+    }
+
+    &__title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: $color-foreground;
+        line-height: 1.3;
+
+        @media (max-width: 768px) {
+            font-size: 1.75rem;
+        }
+    }
+
+    &__paragraph {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: $color-muted-foreground;
+    }
+
+    &__button {
+        background: $color-primary;
+        color: $color-primary-foreground;
+        padding: 1rem 2rem;
+        border-radius: $radius;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: all $transition-normal;
+        width: fit-content;
+
+        &:hover {
+            //background: darken($color-primary, 10%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    }
+}
+
+// Stats Section
+.about-stats {
+    padding: 3rem 1rem;
+    background: $color-cream;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+
+        @media (max-width: 968px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 568px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        text-align: center;
+    }
+
+    &__label {
+        font-size: 0.875rem;
+        color: $color-muted-foreground;
+        margin-bottom: 0.5rem;
+    }
+
+    &__value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: $color-accent;
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+}
+
+// Values Section
+.values {
+    padding: 4rem 1rem;
+    background: $color-background;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    &__tag {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: $color-cream;
+        color: $color-primary;
+        border-radius: $radius;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: $color-foreground;
+        margin-bottom: 1rem;
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: $color-muted-foreground;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+
+        @media (max-width: 968px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 568px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__card {
+        background: $color-card;
+        border: 1px solid $color-border;
+        border-radius: $radius-lg;
+        padding: 2rem;
+        text-align: center;
+        transition: all $transition-normal;
+
+        &:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+    }
+
+    &__icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $color-cream;
+        border-radius: 50%;
+        color: $color-primary;
+    }
+
+    &__card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $color-foreground;
+        margin-bottom: 1rem;
+    }
+
+    &__card-text {
+        font-size: 0.875rem;
+        line-height: 1.6;
+        color: $color-muted-foreground;
+    }
+}
+
+// Leadership Team Section
+.leadership {
+    padding: 4rem 1rem;
+    background: $color-secondary;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    &__tag {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: $color-cream;
+        color: $color-primary;
+        border-radius: $radius;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: $color-foreground;
+        margin-bottom: 1rem;
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: $color-muted-foreground;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+
+        @media (max-width: 968px) {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+
+    &__card {
+        text-align: center;
+    }
+
+    &__image {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 1.5rem;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid $color-cream;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $color-foreground;
+        margin-bottom: 0.5rem;
+    }
+
+    &__role {
+        font-size: 0.875rem;
+        color: $color-primary;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    &__bio {
+        font-size: 0.875rem;
+        line-height: 1.6;
+        color: $color-muted-foreground;
+    }
+}
+
+// Services Preview Section
+.services-preview {
+    padding: 4rem 1rem;
+    background: $color-background;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    &__tag {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: $color-cream;
+        color: $color-primary;
+        border-radius: $radius;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: $color-foreground;
+        margin-bottom: 1rem;
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: $color-muted-foreground;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+
+        @media (max-width: 968px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__card {
+        background: $color-card;
+        border: 1px solid $color-border;
+        border-radius: $radius-lg;
+        overflow: hidden;
+        transition: all $transition-normal;
+
+        &:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform $transition-slow;
+        }
+    }
+
+    &__card:hover &__image img {
+        transform: scale(1.05);
+    }
+
+    &__content {
+        padding: 1.5rem;
+    }
+
+    &__card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $color-foreground;
+        margin-bottom: 0.75rem;
+    }
+
+    &__card-text {
+        font-size: 0.875rem;
+        line-height: 1.6;
+        color: $color-muted-foreground;
+        margin-bottom: 1rem;
+    }
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: $color-primary;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: gap $transition-fast;
+
+        &:hover {
+            gap: 0.75rem;
+        }
+    }
+}
+
+// CTA Section
+.about-cta {
+    padding: 4rem 1rem;
+    //background: linear-gradient(135deg, $color-primary 0%, darken($color-primary, 10%) 100%);
+    color: $color-primary-foreground;
+    text-align: center;
+
+    &__container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+
+        @media (max-width: 768px) {
+            font-size: 1.75rem;
+        }
+    }
+
+    &__text {
+        font-size: 1.125rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+
+        @media (max-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+
+    &__button {
+        background: $color-accent;
+        color: $color-accent-foreground;
+        padding: 1rem 2.5rem;
+        border-radius: $radius;
+        font-weight: 600;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+        transition: all $transition-normal;
+
+        &:hover {
+            //background: darken($color-accent, 5%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+    }
+}

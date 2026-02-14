@@ -1,0 +1,118 @@
+@import "../variables";
+@import "../mxins";
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid $color-border;
+
+    .header__nav {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 $spacing-md;
+
+        @media (min-width: 1024px) {
+            padding: 0 $spacing-2xl;
+        }
+    }
+
+    .links {
+        text-decoration: none;
+        color: #0D1C17;
+    }
+
+    .header__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 80px;
+    }
+
+    .header-btn {
+        background-color: $main-primary;
+        border-radius: 9px;
+    }
+
+    .header__logo {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+
+        img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        span {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: $color-primary;
+        }
+    }
+
+    .header__links {
+        display: none;
+        align-items: center;
+        gap: $spacing-xl;
+
+        @media (min-width: 768px) {
+            display: flex;
+        }
+
+        a {
+            color: $color-foreground;
+            transition: color $transition-fast;
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+    }
+
+    .header__cta {
+        display: none;
+
+        @media (min-width: 768px) {
+            display: block;
+        }
+    }
+
+    .header__mobile-toggle {
+        display: block;
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .header__mobile-menu {
+        padding: $spacing-md 0;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+
+        a {
+            color: $color-foreground;
+            transition: color $transition-fast;
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+    }
+}
