@@ -6,7 +6,17 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://midlandenergies.com/about</loc>
+    <loc>https://midlandenergies.com/about</loc> 
+    <lastmod>2026-02-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://midlandenergies.com/contact</loc> 
+    <lastmod>2026-02-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://midlandenergies.com/projects</loc> 
     <lastmod>2026-02-14</lastmod>
     <priority>0.8</priority>
   </url>
