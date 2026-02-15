@@ -181,6 +181,9 @@ function App() {
       <Header />
 
       {/* Hero Section */}
+      <title>Midland Energies | Sustainable Power Solutions</title>
+      <meta name="description" content="Leading the transition to clean energy in Africa with innovative solar and wind projects." />
+      
       <section className="hero" id="home">
         <div className="hero__background">
           {heroImages.map((image, index) => (

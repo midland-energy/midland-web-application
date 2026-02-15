@@ -74,6 +74,18 @@ export function Projects() {
 
   return (
     <div className="projects-page">
+      {/* --- SEO TAGS (React 19 Hoisting) --- */}
+      <title>Solar Energy Projects in Benin City | Midland Energies Portfolio</title>
+      <meta 
+        name="description" 
+        content="Explore 50+ successful solar installations by Midland Energies. From residential power in Edo State to 500kW+ commercial projects, see how we reduce energy costs by 30%." 
+      />
+      <meta name="keywords" content="Solar installation Benin City, renewable energy Nigeria, commercial solar Edo state, residential solar panels" />
+
+      {/* Open Graph tags for Social Media sharing */}
+      <meta property="og:title" content="Midland Energies | Our Solar Impact" />
+      <meta property="og:description" content="See our portfolio of renewable energy solutions and solar installations." />
+      <meta property="og:image" content={proj1} />
       <Header />
 
       {/* Hero Section */}

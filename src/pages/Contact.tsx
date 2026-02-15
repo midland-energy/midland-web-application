@@ -49,6 +49,19 @@ export function Contact() {
 
   return (
     <div className="contact-page">
+      {/* --- SEO TAGS (React 19 Native) --- */}
+      <title>Contact Midland Energies | Get a Solar Quote in Lagos, Nigeria</title>
+      <meta 
+        name="description" 
+        content="Ready to switch to sustainable energy? Contact Midland Energies in Ajah, Lagos. Get a custom quote for our solar packages or discuss your construction project." 
+      />
+      <meta name="keywords" content="Contact Midland Africa, Solar energy quote Lagos, Renewable energy company Nigeria, Solar panel installation Ajah" />
+
+      {/* Social Media Previews */}
+      <meta property="og:title" content="Contact Midland Energies | Sustainable Energy Experts" />
+      <meta property="og:description" content="Talk to our team about residential and commercial solar solutions in Nigeria." />
+      <meta property="og:type" content="website" />
+
       <Header />
 
       {/* Hero Section */}

@@ -18,6 +18,19 @@ const stats = [
 
   return (
     <div className="about-page">
+      {/* --- SEO TAGS --- */}
+      <title>About Midland Africa | Leaders in Sustainable Energy & Construction</title>
+      <meta 
+        name="description" 
+        content="Discover Midland Africa's mission to power Nigeria. We specialize in innovative renewable energy and sustainable construction solutions, helping homes and businesses thrive." 
+      />
+      <meta name="keywords" content="About Midland Energies, sustainable construction Nigeria, renewable energy experts Lagos, solar power mission Africa" />
+      
+      {/* Social Media Previews */}
+      <meta property="og:title" content="Our Story | Midland Africa" />
+      <meta property="og:description" content="Providing top-tier energy projects and sustainable construction across Nigeria." />
+      <meta property="og:type" content="website" />
+
       <Header />
 
       {/* Hero Section */}
