@@ -30,8 +30,8 @@ export const sendContactEmail = onDocumentCreated(
 
     const mailOptions = {
       from: "Midland Website <operations@midlandafrica.com>",
-      to: "midlandenergyltd@gmail.com",
-      subject: `New Contact Form: ${data.subject}`,
+      to: "operations@midlandafrica.com",
+      subject: `New Contact Form: ${data.package}`,
       html: `
         <h3>New Message from Website</h3>
         <p><strong>Name:</strong> ${data.fullName}</p>
