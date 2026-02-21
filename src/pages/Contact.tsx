@@ -188,7 +188,7 @@ export function Contact() {
                   </div>
                   <div className="contact-info__details">
                     <h4>Phone</h4>
-                    <p>+234 706 740 0239</p>
+                    <p>0814 557 4794</p>
                   </div>
                 </div>
 

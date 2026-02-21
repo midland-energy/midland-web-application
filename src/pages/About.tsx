@@ -61,7 +61,7 @@ const stats = [
               </p>
 
               <p className="company-overview__paragraph">
-                We are a sustainable energy and construction company that focuses on developing, producing, and distributing 
+                We are a sustainable energy company that focuses on developing, producing, and distributing 
                 renewable energy solutions that reduce environmental impact while promoting long-term energy security. We leverage 
                 cutting-edge technology and innovation to harness energy from natural resources such as the sun, wind, water, and biomass.
               </p>
@@ -204,7 +204,7 @@ const stats = [
             <div className="services-preview__tag">What we do</div>
             <h2 className="services-preview__title">Our Services</h2>
             <p className="services-preview__subtitle">
-              We offer a comprehensive range of sustainable energy and construction services to meet the diverse needs
+              We offer a comprehensive range of sustainable energy services to meet the diverse needs
               of our clients.
             </p>
           </div>
