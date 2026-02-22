@@ -36,6 +36,8 @@ export const sendContactEmail = onDocumentCreated(
         <h3>New Message from Website</h3>
         <p><strong>Name:</strong> ${data.fullName}</p>
         <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Phone:</strong> ${data.phone}</p>
+        <p><strong>Address:</strong> ${data.adress}</p>
         <p><strong>Message:</strong><br/>${data.message}</p>
       `,
     }

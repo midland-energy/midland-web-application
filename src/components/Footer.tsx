@@ -2,8 +2,48 @@ import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
 import "../styles/components/footer.scss"
 import logo from "../assets/MIDLAND-LOGO.png"
 import { NavLink } from "react-router-dom"
+import { useState } from "react";
+import { addDoc, collection, getDocs, query, serverTimestamp, where } from "firebase/firestore";
+import { db } from "../firebase";
 
 export function Footer() {
+
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      // Optional: Check if the email already exists to prevent duplicates
+      const subscribersRef = collection(db, "newsletter_subscribers");
+      const q = query(subscribersRef, where("email", "==", email));
+      const querySnapshot = await getDocs(q);
+
+      if (!querySnapshot.empty) {
+        alert("You are already subscribed!");
+        setLoading(false);
+        return;
+      }
+
+      // Add the new email to Firestore
+      await addDoc(subscribersRef, {
+        email: email,
+        subscribedAt: serverTimestamp(),
+        active: true // Useful for managing unsubscribes later
+      });
+
+      alert("Thank you for subscribing to Midland Energies!");
+      setEmail("");
+    } catch (error) {
+      console.error("Error adding subscriber: ", error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <footer className="footer" id="contact">
       <div className="footer__container">
@@ -103,8 +143,17 @@ export function Footer() {
               Subscribe to our newsletter for the latest updates on renewable energy
             </p>
             <div className="footer__newsletter-form space-y-2">
-              <input type="email" placeholder="Your email address" className="email-input"/>
-              <button className="subscribe-btn">Subscribe</button>
+              <form onSubmit={handleSubscribe} className="newsletter-form">
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="email-input"
+                />
+              </form>
+              <button type="submit" disabled={loading} className="subscribe-btn">{loading ? "Subscribing..." : "Subscribe"}</button>
             </div>
           </div>
         </div>
